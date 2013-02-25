@@ -47,7 +47,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 
-\ExecuteOptions{thesis,oneside,nopageheader,nochapter,longtitle,shortdepspe,defaultmath}
+\ExecuteOptions{thesis,oneside,nopageheader,chapter,longtitle,shortdepspe,defaultmath}
 \ProcessOptions\relax
 
 % 载入 ctex 文类
@@ -193,14 +193,9 @@
 \newcommand{\mtitle}[1]{\def\NJU@mtitle{#1}}
 % 导师
 \def\NJU@cmentor{}
-\newcommand{\cmentor}[1]{\def\NJU@cmentor{#1}}
+\newcommand{\cmentor}[2]{\def\NJU@cmentor{#1}\def\NJU@cmentortitle{#2}}
 \def\NJU@ementor{}
-\newcommand{\ementor}[1]{\def\NJU@ementor{#1}}
-% 导师职称
-\def\NJU@cmentortitle{}
-\newcommand{\cmentortitle}[1]{\def\NJU@cmentortitle{#1}}
-\def\NJU@ementortitle{}
-\newcommand{\ementortitle}[1]{\def\NJU@ementortitle{#1}}
+\newcommand{\ementor}[2]{\def\NJU@ementor{#1}\def\NJU@ementortitle{#2}}
 % 院系
 \def\NJU@cdepartment{}
 \newcommand{\cdepartment}[1]{\def\NJU@cdepartment{#1}}
@@ -392,8 +387,8 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 2.0
-% 试验修改中……
-%
+% 试着修改中……
+% 
 % 1.6
 % 修复了引用连续参考文献的连字符问题
 % 国家标准的参考文献排版风格

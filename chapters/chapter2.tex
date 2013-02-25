@@ -13,7 +13,7 @@
 CTeX 发行版又分为基本版 Basic 和完整版 Full，你可以试试基本版可不可以顺利使用，并给我们反馈，初学者推荐安装完整版。顺利安装后系统会自动与 .tex 即 \LaTeX{} 源文件进行关联。双击便可以打开已安装好的 \TeX{} 文本编辑器，比如 OS X 下的 TeXWorks，CTeX 套装里的 WinEdt 进行修改和编译。请先打开本模板里的 test.tex，你可以简单熟悉一下 \LaTeX{} 的源文件结构，并试一下编译，看看生成的 test.pdf 效果是能和自带的 test-compare.pdf 是否一致（编译顺序为 XeLaTeX $\rightarrow$ BibTeX $\rightarrow$ XeLaTeX $\rightarrow$ XeLaTeX）。
 
 \section{文件结构}
-模板中文类 NJUbachelor.cls 是按南京大学本科毕业论文撰写和装订要求进行的格式设置文件，YourPaper.bst 是参考文献格式设置文件，YourPaper.tex 是你要编译的主文件，文件夹 frontmatter 下面的 abstract.tex 用来书写中英文摘要，文件夹 chapter 下 chapter1.tex, chapter2.tex … 用来书写正文章节，文件夹 refs 下 refernces.bib 管理参考文献，figures 下保存所有要插入的图片，backmatter 下 acknowledgment.tex 和 appendices.tex 分别是致谢和附录，njulogos 下存放封面上使用的学校标志。.cls、.bst、.tex、.bib 格式的文件都可以用文本编辑器或合适的软件打开。
+模板中文类 NJUbachelor.cls 是按南京大学本科毕业论文撰写和装订要求进行的格式设置文件，YourPaper.bst 是参考文献格式设置文件，YourPaper.tex 是你要编译的主文件，文件夹 frontmatter 下面的 abstract.tex 用来书写中英文摘要，文件夹 chapter 下 chapter1.tex, chapter2.tex \ldots 用来书写正文章节，文件夹 refs 下 refernces.bib 管理参考文献，figures 下保存所有要插入的图片，backmatter 下 acknowledgment.tex 和 appendices.tex 分别是致谢和附录，njulogos 下存放封面上使用的学校标志。.cls、.bst、.tex、.bib 格式的文件都可以用文本编辑器或合适的软件打开。
 
 \section{基本要素}
 虽然对 \LaTeX{} 完全不了解也不影响使用本模板，但是如果可以了解其基础知识，那么可以事半功倍。这里推荐入门必读里 lshort 这篇文档，若要更高级使用请参考“进一步阅读”部分。
@@ -47,18 +47,18 @@ CTeX 发行版又分为基本版 Basic 和完整版 Full，你可以试试基本
 
 \subsection{表格}
 其实，使用 \LaTeX{} 制作表格并不是特别方便，\LaTeX{} 最方便的地方在于数学公式的编排以及层次逻辑。这里我们仅以科技文献中最常用的“三线表”为例进行说明。比如上面的表 \ref{tab:fjbt}，它的代码如下：
-\begin{Verbatim}[baselinestretch=0.5,frame=single]
+\begin{Verbatim}[frame=single]
 {\zihao{5}
 \begin{longtable}{cc}
-  \caption{分级标题使用命令}\label{tab:fjbt}\\
-  \midrule
-  标题名称&	代码\\
-  \hline
-  大（章）标题&	\verb|\chapter{你的大（章）标题内容}|\\
-  次级标题&	\verb|\chapter{你的次级标题内容}|\\
-  三级标题&	\verb|\chapter{你的三级标题内容}|\\
-  四级标题&	\verb|\chapter{你的四级标题内容}|\\
-  \bottomrule
+	\caption{分级标题使用命令}\label{tab:fjbt}\\
+	\midrule
+	标题名称&	代码\\
+	\hline
+	大（章）标题&	\verb|\chapter{你的大（章）标题内容}|\\
+	次级标题&	\verb|\chapter{你的次级标题内容}|\\
+	三级标题&	\verb|\chapter{你的三级标题内容}|\\
+	四级标题&	\verb|\chapter{你的四级标题内容}|\\
+	\bottomrule
 \end{longtable}
 }
 \end{Verbatim}
@@ -68,7 +68,7 @@ CTeX 发行版又分为基本版 Basic 和完整版 Full，你可以试试基本
 
 \subsection{注释}
 注释采用脚注，使用起来很简单\footnote{就像这样。}。只需要在你要加注释的地方用即可。比如第一句的源代码为
-\begin{Verbatim}[baselinestretch=0.5,frame=single]
+\begin{Verbatim}[frame=single]
 注释采用脚注，使用起来很简单\footnote{就像这样。}。
 \end{Verbatim}
 这全都是自动的（标号、生成），一切不用你多操心\footnote{真得很简单吧。}。
@@ -77,8 +77,8 @@ CTeX 发行版又分为基本版 Basic 和完整版 Full，你可以试试基本
 插个图试试：
 \begin{figure}[!h]
 	\centering
-	\includegraphics[height=4cm]{figures/dreamdove.png}
-	\caption{这是一个测试}\label{fig1}
+	\includegraphics[height=4cm]{figures/feynman.png}
+	\caption{这是一个测试: Dr. Feynman}\label{fig:feynman}
 \end{figure}
 
 \subsection{列表}
