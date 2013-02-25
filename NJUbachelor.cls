@@ -8,7 +8,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{NJUbachelor}[2013/02/25 v2.0 NJUbachelor Style for NJUers Created by Zlcao, modified by G.F.]
+\ProvidesClass{NJUbachelor}[02/22/2013 v2.0 NJUbachelor Style for NJUers Created by Zlcao, revised by G.F.]
 
 \newif\ifNJU@thesis
 \DeclareOption{thesis}{\NJU@thesistrue}
