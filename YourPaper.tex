@@ -1,0 +1,44 @@
+\documentclass[chapter,shorttitle,mathtxf]{NJUbachelor}
+
+\usepackage{fancyvrb}
+
+\sid{09XXXXXXX}
+\grade{09}
+\cauthor{你名字}
+\ctitle{你的论文题目一般不宜超过24个字必要时可增加副标题}
+\cdepartment{你的院系XX学院}
+\cspecialization{你的系别}
+\cmentor{老师名}
+\cmentortitle{教授}
+\ckeywords{自己改吧; 南京大学; 本科毕设; \LaTeX{} 模板}
+\cdate{2013 年 X 月 X 日}
+
+\eauthor{Your Name}
+\etitle{The Title of Your Paper in English}
+\edepartment{School of Your Major}
+\especialization{Major}
+\ementor{James Bond}
+\ementortitle{Professor}
+\ekeywords{DIY; Nanjing University; Bachelor's Thesis; \LaTeX{} Template}
+
+\begin{document}
+\makecover
+
+\frontmatter
+\include{frontmatter/abstract}
+\pagenumbering{Roman}
+\tableofcontents
+
+\mainmatter
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+
+\backmatter
+\nocite{*}
+\bibliographystyle{YourPaper}
+\bibliography{refs/references}
+\include{backmatter/acknowledgment}
+\appendix
+\include{backmatter/appendices}
+\end{document}
