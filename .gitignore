@@ -20,3 +20,5 @@
 *.gz
 
 *.toc
+
+.svn/entries

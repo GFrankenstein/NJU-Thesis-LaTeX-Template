@@ -78,8 +78,6 @@
 \RequirePackage{booktabs} %三线表格宏包
 \RequirePackage{tabularx} %定宽度表格宏包
 \RequirePackage{multirow} %跨行表格宏包
-\RequirePackage{mhchem} %化学式宏包
-\RequirePackage{chemfig} %化学式宏包
 \RequirePackage[format=hang,font=small,justification=centering,labelfont=sf]{caption} %caption格式定制
 \RequirePackage[colorlinks,citecolor=black,linkcolor=black]{hyperref} %PDF标签支持
 \RequirePackage{calc}
@@ -136,24 +134,22 @@
 %                    ctex 中文格式
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\CTEXoptions[
-%  contentsname={目录},listfigurename={插图},
-%  listtablename={表格},figurename={图},
-%  tablename={表},abstractname={},
-%  indexname={索引},bibname={参考文献}]
-%\ifNJU@chapter
-% \CTEXoptions[contentsname={目~~~录},indexname={索~~~引}]
-%\else
-  \CTEXoptions[contentsname={\makesomething{目~~~~录}},indexname={\makesomething{索~~~~引}}]
-%\fi
 \CJKsetecglue{}
 %\punctstyle{kaiming}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %                     标题格式/目录标题格式
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%各部分标题
+%目录标题
+%\ifNJU@chapter
+% \CTEXoptions[contentsname={目~~~录},indexname={索~~~引}]
+%\else
+  \CTEXoptions[contentsname={\makesomething{目~~~~录}},indexname={\makesomething{索~~~~引}}]
+%\fi
+
+%各级层次标题
 \CTEXsetup[number=\arabic{chapter},titleformat={\zihao{4}\sf},%
            nameformat={\zihao{4}\sf},beforeskip={1.2em},afterskip={1.8em}]{chapter}
 \CTEXsetup[format={\sf\zihao{4}}]{section}
@@ -166,7 +162,6 @@
   \titlecontents{section}[1.5em]{\vspace{1.6em}\sf\zihao{4}}%
     {\contentslabel{1.5em}}{\hspace{-4em}}{\hfill\bf\contentspage}
 \fi
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -267,8 +262,6 @@
   \newcommand{\makectitle}
     {\makesomething{\qquad\\[0.6em]\NJU@ctitle\\[2.6em]}}
 \fi
-
-%\newcommand{\makectitle}{\chapter*{\NJU@ctitle}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %

@@ -1,76 +1,49 @@
-\chapter{结论}
-\section{模板的宗旨}
+\chapter{进一步阅读}
+上一章介绍了基本使用方法，但是因为每个人论文的内容千差万别，形式也必然各式各样，所以为了拓展一下应用范围，本章的目的在于简要介绍一下如何利用 LaTeX 强大的功能（主要是宏包的扩展）来完成形形色色的排版任务。当然，这里的演示也只是提纲挈领式的。
 
-我们已经知道，\LaTeX{} 通过命令和环境实现各种复杂的排版效果。
-在导言区，我们可以通过调入宏包，
-利用调入宏包提供的各种设置命令以及自定义各种命令，
-来定制文档的排版效果。
-如果导言区有很多内容，有时我们把它写在另外一个~.tex 文件中，
-利用 \verb|\input{文件}| 的方式调入到导言区中。
-这样做的好处是精简文档代码，尽量把内容与自定义设置分开。
-在书写某些大型的文档时，
-我们也可以使用 \verb|\input{章节文件.tex}| 的方式对文档进行拆分。
-编译时只需要调入正在编辑的章节内容，而不必编译整份文档，节约编译的时间。
-当然，利用命令 \verb|\input{章节文件.tex}| 来拆分文档有相当的局限性，以后再作说明。
+\section{文档}
+文档一般指技术领域的说明、帮助文件或者一些教程。阅读文档是学习技术的重中之重，你可能遇到的大多问题都可以在文档中找到答案。当然，运用搜索引擎也是一个好办法。还有就是可以向有经验的人提问，这都可以帮助解决问题。尽快学会如何去解决问题比解决某个问题更重要。
 
-对于比较复杂的模板，更好的方法是将自定义的内容制作成宏包或者文类。
-文类可以提供选项，这样一个文类可以根据不同的选项提供不同的排版。
-文类中可以方便地重定义某些 \LaTeX{} 的内部命令，来改变排版效果。
-更重要的，对于我这样的菜鸟，用文类写模板看起来似乎更加专业一些。
-好吧，其实除了看起来更专业我真的没觉得用文类能比 \verb|\input{}| 优越太多。
+这里推荐一些学习的地方：
+\begin{itemize}
+	\item LaTeX 编辑部，\url{http://zzg34b.w3.c361.com}。提供了比较详尽的教程、宏包说明等文档集合，如果喜欢纸质版教程，《LaTeX2e 完全学习手册》就是一本不错的书。
+	\item 中文 TeX 论坛，\url{bbs.ctex.org}。可以交流或寻求帮助。
+\end{itemize}
 
-当然，毕业论文模板另一个相当重要的功能就是提供其他用户一些命令，
-以方便地排版出封面、摘要等内容。
-用模板排版封面、摘要等内容，无论质量还是方便性，与 Word 相比都有巨大的优势。
+\section{宏包}
+宏包就是 Macro package 的字面翻译。关于 Macro（宏）这个计算机领域常见的概念，你不必深究，只要知道对 LaTeX 进行功能扩充就像搭积木似的调用 package，从而实现各式各样的功能\cite{latex2e}。调用宏包也十分容易，通常在源文件导言区即 \verb|{\begin{document}}| 之前使用 \verb|\usepackage{宏包名}| 调用即可，也可以直接在本文类 NJUbachelor.cls 文件加载宏包的部分修改。
 
-\section{开始}
+比如本文档导言区使用了 fancyvrb 这个宏包用来获得更灵活的抄录环境 \verb|Verbatim| 的功能。本文类默认加载了 ctex, booktabs, graphix 宏包，详见 NJUbachelor.cls 代码。
 
-使用本模板，方法十分简单。
-我们已经知道怎样开始一个标准的 \LaTeX{} 文档，
-使用本模板，只需要把调用的文类替换成 \verb|NJUbachelor| 即可。
+\section{几个例子}
+因为之前基本要素中给出的都是最常用的功能，但是因为每个人都有各式各样的需求，都可以通过使用各种宏包来实现。这里简单给几个具体的例子以作演示，可以是你进一步体会到使用 LaTeX 的方便之处。
 
-{\small\vspace{-0.2em}%
-\begin{verbatim}
-              \documentclass[参数]{NJUbachelor}
-                导言区
-              \begin{document}
-                正文
-              \end{document}
-\end{verbatim}}
+\subsection{代码}
+程序代码功能就像之前提到的，使用 fancyvrb 这个宏包扩展。效果请参见 \ref{app:src} 所示。
 
+\subsection{化学式}
+这个是某些专业同学需要使用的一个功能，调用 mhchem 宏包获得方便的使用。如：
+\begin{Verbatim}[frame=single]
+\begin{gather*}
+\ce{BrO3- + HBrO2 + H+ ->[k_3] 2BrO2 + H2O}\\
+\ce{BrO2 + Ce^{3+} + H+ ->[k_4] HBrO2 + Ce^{4+}}\\
+\ce{2HBrO2 ->[k_5] BrO3- + HOBr + H+}
+\end{gather*}
+\end{Verbatim}
+产生
+\begin{gather*}
+\ce{BrO3- + HBrO2 + H+ ->[k_3] 2BrO2 + H2O}\\
+\ce{BrO2 + Ce^{3+} + H+ ->[k_4] HBrO2 + Ce^{4+}}\\
+\ce{2HBrO2 ->[k_5] BrO3- + HOBr + H+}
+\end{gather*}
 
-\section{参数}
+\subsection{SI 单位}
+这也是理科生常用的一个功能，可以通过 siunix 宏包取得方便扩展。
+比如 
+\begin{Verbatim}[frame=single]
+$\mu_1=\SI[inter-unit-product=\ensuremath{{}\cdot{}}]
+{2.09e-23}{\joule\per\tesla}$
+\end{Verbatim}
+产生 $\mu_1=\SI[inter-unit-product=\ensuremath{{}\cdot{}}]{2.09e-23}{\joule\per\tesla}$ 的效果。
 
-你可以直接调用模板而不给出任何参数，缺省选项是为最通用的情况设置。
-当然，你也可以根据自己的需求输入参数，来改变缺省设置。
-可选的参数有
-\begin{description}
-  \item[thesis/design] 封面页显示“本科毕业论文”或者“本科毕业设计”。
-  \item[oneside/twoside] 设置单面或者双面打印。
-    双面打印会区分单双页，页眉和左右页边距都会根据单双页自动调整。
-    双面打印时还会在必要的地方插入空白页。
-  \item[pageheader/nopageheader] 设置是否打印页眉。
-  \item[chapter/nochapter] 设置是否支持章 \verb|\chapter{}| 层次。
-    不使用章层次更符合学校要求。
-    不使用章层次时，最高一级标题是 \verb|\section{节标题}|。
-    节标题套用学校章的要求使用四号黑体。
-    （简单的说，就是学校要求中的章模板中由 \verb|\section{}| 命令给出）
-    毕竟本科学位论文还没有长到要用 \LaTeX{} 中的章层次的地步。
-    如果用章层次，则每一章都会另起一页开始。
-    使用章层次将无法在正文生成中文标题，
-    中文标题的格式三号宋体加粗被套用给章，
-    而节的格式仍然是四号黑体。
-  \item[openright/openany] 如果有章层次，
-    设置章层次可在任意页新起一页或者必须在右手（奇数）页新起一页。
-  \item[longtitle/shorttitle/manualtitle]
-    设置标题页和中文摘要纸的中文标题排版效果。
-    长标题可支持自动换行，左对齐显示；
-    短标题适合单行标题，可在横线上居中显示；
-    手动标题可以利用 \verb|\mtitle| 命令提供手动换行支持，
-    每一行标题都可以在横线上居中显示。
-  \item[shortdepspe/longdepspe] 
-    你可以根据自己院系和专业名的总长度进行选择。
-    选择 shortdepspe 的排版效果和学校给出的中文摘要页是一样的；
-    如果院系专业名太长，可以选择 longdepspe 选项。
-  \item[defaultmath/mathptm/mathtxf] 你可以根据自己的喜好选择数学字体。
-\end{description}
+举这三个例子，相信可以举一反三。其实宏包的具体使用方式在宏包的说明文档中都有，参考文档学习使用就可以了。

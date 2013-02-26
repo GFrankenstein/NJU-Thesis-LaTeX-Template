@@ -1,6 +1,8 @@
-\documentclass[chapter]{NJUbachelor}
+\documentclass{NJUbachelor}
 
 \usepackage{fancyvrb}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
 
 \sid{09XXXXXXX}
 \grade{09}
@@ -9,7 +11,7 @@
 \cdepartment{你的院系XX学院}
 \cspecialization{你的系别}
 \cmentor{老师名}{教授}
-\ckeywords{自己改吧; 南京大学; 本科毕设; \LaTeX{} 模板}
+\ckeywords{自己改吧; 南京大学; 本科毕设; 模板}
 \cdate{2013 年 X 月 X 日}
 
 \eauthor{Your Name}
@@ -17,7 +19,7 @@
 \edepartment{School of Your Major}
 \especialization{Major}
 \ementor{James Bond}{Professor}
-\ekeywords{DIY; Nanjing University; Bachelor's Thesis; \LaTeX{} Template}
+\ekeywords{DIY; Nanjing University; Bachelor's Thesis; Template}
 
 \begin{document}
 \makecover
@@ -33,7 +35,6 @@
 \include{chapters/chapter3}
 
 \backmatter
-\nocite{*}
 \bibliographystyle{YourPaper}
 \bibliography{refs/references}
 \include{backmatter/acknowledgment}
