@@ -63,7 +63,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amsmath,amsfonts,amssymb,bm} %数学相关宏包支持
-\RequirePackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}   %页面设置
+\RequirePackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} %页面设置
 \RequirePackage{stmaryrd} %数学字体宏包
 \ifNJU@notdefaultmath \RequirePackage{\NJU@mathpackage} \fi
 \RequirePackage{graphicx} %提供图形支持
