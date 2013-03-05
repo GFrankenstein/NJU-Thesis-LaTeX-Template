@@ -10,24 +10,29 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{NJUbachelor}[2013/02/25 v2.0 NJUbachelor Style for NJUers Created by Zlcao, modified by G.F.]
 
+%判断毕业论文或毕业设计
 \newif\ifNJU@thesis
 \DeclareOption{thesis}{\NJU@thesistrue}
 \DeclareOption{design}{\NJU@thesisfalse}
 
+%判断单双页
 \newif\ifNJU@oneside
 \DeclareOption{oneside}{\NJU@onesidetrue%
   \PassOptionsToClass{oneside}{ctexbook}\PassOptionsToClass{oneside}{ctexart}}
 \DeclareOption{twoside}{\NJU@onesidefalse%
   \PassOptionsToClass{twoside}{ctexbook}\PassOptionsToClass{twoside}{ctexart}}
 
+%判断页眉
 \newif\ifNJU@pageheader
 \DeclareOption{pageheader}{\NJU@pageheadertrue}
 \DeclareOption{nopageheader}{\NJU@pageheaderfalse}
 
+%判断有没有章标题
 \newif\ifNJU@chapter
 \DeclareOption{chapter}{\NJU@chaptertrue}
 \DeclareOption{nochapter}{\NJU@chapterfalse}
 
+%长短标题设置
 \newif\ifNJU@longtitle\NJU@longtitlefalse
 \newif\ifNJU@shorttitle\NJU@shorttitlefalse
 \newif\ifNJU@manualtitle\NJU@manualtitlefalse
@@ -39,6 +44,7 @@
 \DeclareOption{shortdepspe}{\NJU@shortdepspetrue}
 \DeclareOption{longdepspe}{\NJU@shortdepspefalse}
 
+%数学字体
 \newif\ifNJU@notdefaultmath
 \DeclareOption{defaultmath}{\NJU@notdefaultmathfalse}
 \DeclareOption{mathptm}{\NJU@notdefaultmathtrue\def\NJU@mathpackage{mathptmx}}
@@ -46,7 +52,7 @@
 
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
-
+%默认选项
 \ExecuteOptions{thesis,oneside,nopageheader,chapter,longtitle,shortdepspe,defaultmath}
 \ProcessOptions\relax
 
@@ -63,7 +69,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{amsmath,amsfonts,amssymb,bm} %数学相关宏包支持
-\RequirePackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} %页面设置
+\RequirePackage[left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry} %页面设置宏包
 \RequirePackage{stmaryrd} %数学字体宏包
 \ifNJU@notdefaultmath \RequirePackage{\NJU@mathpackage} \fi
 \RequirePackage{graphicx} %提供图形支持
@@ -80,7 +86,7 @@
 \RequirePackage{multirow} %跨行表格宏包
 \RequirePackage[format=hang,font=small,justification=centering,labelfont=sf]{caption} %caption格式定制
 \RequirePackage[colorlinks,citecolor=black,linkcolor=black]{hyperref} %PDF标签支持
-\RequirePackage{calc}
+\RequirePackage{calc} %长度计算宏包
 \RequirePackage[numbers,sort&compress]{natbib}
 \RequirePackage{hypernat}
 
@@ -111,31 +117,21 @@
 %                          字体设置
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ctex-xecjk-winfonts.def: Windows 的 xeCJK 字体设置，默认为六种中易字体
-% vim:ft=tex
-\setmainfont{Times New Roman}
+\setmainfont{Times New Roman} %设置主英文字体为 Times New Roman
 
-\xeCJKsetup{AutoFakeSlant={true}}
+\xeCJKsetup{AutoFakeSlant={true}} %汉字斜体效果
 
-\setCJKmainfont{SimSun}
-\setCJKsansfont{SimHei}
-\setCJKmonofont{KaiTi}
-
-\setCJKfamilyfont{zhsong}{SimSun}
-\setCJKfamilyfont{zhhei}{SimHei}
-\setCJKfamilyfont{zhkai}{KaiTi}
-
-\providecommand*{\songti}{\CJKfamily{zhsong}} % 宋体
-\providecommand*{\heiti}{\CJKfamily{zhhei}}   % 黑体
-\providecommand*{\kaishu}{\CJKfamily{zhkai}}  % 楷书
+\setCJKmainfont{SimSun} %中文主字体对应宋体
+\setCJKsansfont{SimHei} %中文无衬线字体对应黑体
+\setCJKmonofont{KaiTi} %中文等宽字体对应楷体
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%                    ctex 中文格式
+%                        ctex 中文风格
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\CJKsetecglue{}
-%\punctstyle{kaiming}
+%\CJKsetecglue{} %去掉中英文之间自动添加的空格，除非对中英间距有特殊嗜好和极强控制能力，否则不必理会这个选项亦不影响使用
+%\punctstyle{kaiming} %标点符号模式为“开明式”
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -143,11 +139,7 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %目录标题
-%\ifNJU@chapter
-% \CTEXoptions[contentsname={目~~~录},indexname={索~~~引}]
-%\else
-  \CTEXoptions[contentsname={\makesomething{目~~~~录}},indexname={\makesomething{索~~~~引}}]
-%\fi
+\CTEXoptions[contentsname={\makesomething{目~~~~录}},indexname={\makesomething{索~~~~引}}]
 
 %各级层次标题
 \CTEXsetup[number=\arabic{chapter},titleformat={\zihao{4}\sf},%
@@ -214,8 +206,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%                      封面  标题页及标题
-% 
+%                           封面生成
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\makecover}
   {\thispagestyle{empty}\pdfbookmark[0]{封面}{cover}%
@@ -370,7 +362,6 @@
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\diff}{\mathrm{d}} %微分号
-%\newcommand{\scite}[1]{\ensuremath{^{\text{\cite{#1}}}}} %文献引用 右上角
 \newcommand{\scite}[1]{\textsuperscript{\cite{#1}}} %文献引用 右上角
 \newcommand{\unit}[1]{\ensuremath{\,\mathrm{#1}}} %单位格式
 
@@ -417,3 +408,4 @@
 %                         Todo List
 % 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%字体设置进一步优化，生僻字支持
