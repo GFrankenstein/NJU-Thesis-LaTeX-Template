@@ -1,6 +1,5 @@
 NJU-Thesis-LaTeX-Template
 =========================
-
 A LaTeX template for Nanjing University
 
 一个南京大学本科毕业论文 LaTeX 模板
