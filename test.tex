@@ -1,0 +1,51 @@
+\documentclass{NJUbachelor} %文类的声明，采用 NJUbachelor 即本模板
+
+%这里是导言区，作为示范调用了几个宏包
+\usepackage{fancyvrb}
+\usepackage{siunitx}
+\usepackage[version=3]{mhchem}
+
+%以下是个人信息部分，改动相应部分即可
+\sid{09XXXXXXX}
+\grade{09}
+\cauthor{你名字}
+\ctitle{你的论文题目一般不宜超过 24 个字必要时可增加副标题}
+\cdepartment{你的院系某某学院}
+\cspecialization{你的系别}
+\cmentor{老师名}{教授}
+\ckeywords{自己改吧; 南京大学; 本科毕设; 模板}
+\cdate{2013 年 X 月 X 日}
+
+\eauthor{Your Name}
+\etitle{The Title of Your Paper in English}
+\edepartment{School of Your Major}
+\especialization{Your Major}
+\ementor{James Bond}{Professor}
+\ekeywords{DIY; Nanjing University; Bachelor's Thesis; Template}
+
+\begin{document} %开始文档
+\makecover %生成封面
+
+%摘要和目录生成
+\frontmatter
+\include{frontmatter/abstract}
+\pagenumbering{Roman}
+\tableofcontents
+
+%正文生成
+\mainmatter
+\include{chapters/chapter1} %载入相关章节
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+
+%参考文献和致谢生成
+\backmatter
+\bibliographystyle{NJUbachelor}
+\bibliography{refs/references}
+\include{backmatter/acknowledgment}
+
+%附录部分，不需要可以采用 % 注释掉接下来的两行
+\appendix
+\include{backmatter/appendices}
+
+\end{document} %结束文档
