@@ -53,7 +53,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexart}}
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{ctexbook}}
 %默认选项
-\ExecuteOptions{thesis,oneside,nopageheader,chapter,longtitle,shortdepspe,defaultmath}
+\ExecuteOptions{thesis,oneside,nopageheader,chapter,shorttitle,shortdepspe,defaultmath}
 \ProcessOptions\relax
 
 % 载入 ctex 文类
