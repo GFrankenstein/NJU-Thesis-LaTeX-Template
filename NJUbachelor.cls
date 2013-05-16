@@ -36,9 +36,9 @@
 \newif\ifNJU@longtitle\NJU@longtitlefalse
 \newif\ifNJU@shorttitle\NJU@shorttitlefalse
 \newif\ifNJU@manualtitle\NJU@manualtitlefalse
-\DeclareOption{longtitle}{\NJU@longtitletrue}
-\DeclareOption{shorttitle}{\NJU@shorttitletrue\NJU@longtitlefalse}
-\DeclareOption{manualtitle}{\NJU@manualtitletrue\NJU@longtitlefalse}
+\DeclareOption{shorttitle}{\NJU@shorttitletrue}
+\DeclareOption{longtitle}{\NJU@longtitletrue\NJU@shorttitlefalse}
+\DeclareOption{manualtitle}{\NJU@manualtitletrue\NJU@shorttitlefalse}
 
 \newif\ifNJU@shortdepspe
 \DeclareOption{shortdepspe}{\NJU@shortdepspetrue}
